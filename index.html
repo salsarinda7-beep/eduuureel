@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EduReel — Paket Fisika</title>
+  <style>
+    .title-thumb {
+  height: 140px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, #dff0ff, #eaf6ff);
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #244b87;
+  text-align: center;
+  padding: 10px;
+}
+
+    /* --- styling mengikuti tampilan awal --- */
+    /* Samakan ukuran foto founders */
+    .team-grid .member img { width: 100%; height: 260px; object-fit: cover; border-radius: 12px; }
+    .thumb{ height: 160px; border-radius: 10px; overflow: hidden; }
+    .thumb img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    :root{--nav:#173a73;--accent:#244b87;--soft:#eaf4ff;--card:#f7fbff;--muted:#6b7c93}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; color:#18314a; background:linear-gradient(180deg,#f3f9ff 0%, #ffffff 100%)}
+
+    /* header */
+    header{background:var(--nav); color:#fff; padding:22px 40px; border-radius:12px 12px 0 0; display:flex; align-items:center; justify-content:space-between}
+    header .logo{font-weight:800; font-size:28px; letter-spacing:1px}
+    nav a{color:#e7f0ff; text-decoration:none; margin-left:22px}
+
+    /* container */
+    .container{max-width:1100px; margin:28px auto; background:linear-gradient(180deg,#e8f4ff 0,#eaf7ff 70%); border-radius:14px; box-shadow:0 6px 18px rgba(25,40,70,0.08); overflow:hidden; padding-bottom:24px;}
+
+    /* hero */
+    .hero{display:flex; gap:30px; padding:48px}
+    .hero-left{flex:1}
+    .hero-left h1{font-size:48px; line-height:1; margin:0 0 18px}
+    .tagline{display:flex; align-items:center; gap:14px; margin:22px 0}
+    .edu-logo img{width:48px; height:48px}
+    .cta{display:inline-block; background:var(--accent); color:#fff; padding:10px 18px; border-radius:10px; text-decoration:none; margin-top:12px}
+    .hero-right{width:420px; display:flex; align-items:center; justify-content:center}
+    .hero-right img{max-width:100%; height:auto}
+
+    /* sections */
+    .section{padding:36px 48px}
+    .grid{display:grid; gap:18px}
+    .features{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+    .feature{background:#fff; padding:18px; border-radius:10px; box-shadow:0 4px 12px rgba(20,40,80,0.04)}
+
+    /* videos */
+    .videos{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px}
+    .video{background:#fff;border-radius:12px;padding:12px; box-shadow:0 6px 18px rgba(20,40,80,0.04)}
+    .thumb{height:140px; background:linear-gradient(90deg,#dff0ff,#eaf6ff); border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:700; color:#244b87; font-size:18px}
+    .buy{display:inline-block; margin-top:8px; text-decoration:none; background:var(--nav); color:#fff; padding:8px 12px; border-radius:8px; cursor:pointer}
+    .meta{font-size:13px; color:var(--muted); margin-top:8px}
+
+    /* quiz button */
+    .quiz-btn{display:inline-block; padding:10px 14px; background:#6a5acd; color:#fff; text-decoration:none; border-radius:8px; margin-top:10px}
+
+    /* reviews */
+    .reviews {background:#fff; padding:28px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.04); margin:24px 48px}
+    .review-list{margin-bottom:20px}
+    .review-item{padding:12px; background:#f8f8f8; border-radius:8px; margin-bottom:10px}
+    .review-item h4{margin:0 0 6px}
+    .review-form input, .review-form textarea{width:100%; padding:10px; margin:8px 0; border-radius:8px; border:1px solid #ddd}
+    .review-form button{padding:10px 16px; background:var(--nav); color:#fff; border:none; border-radius:8px; cursor:pointer}
+    footer{padding:22px 40px; color:var(--muted); font-size:14px}
+
+    /* team */
+    .team{padding:40px 20px; text-align:center}
+    .team-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; margin-top:20px}
+    .member img{width:100%; border-radius:12px; display:block}
+
+    /* small helpers */
+    .code-box { margin-top:10px; display:none; background:#eef7ff; padding:10px; border-radius:8px; }
+    .code-input{ padding:8px; width:100%; border-radius:6px; border:1px solid #ccc; }
+    .content-box { display:none; margin-top:12px; }
+
+    /* responsive */
+    @media (max-width:900px){
+      .hero{flex-direction:column; align-items:flex-start; padding:28px}
+      .hero-right{width:100%}
+      .container{padding-bottom:40px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">PHYSICS — EduReel</div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#about">About</a>
+        <a href="#courses">Courses</a>
+        <a href="#reviews">Reviews</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Explore the<br/>Wonders of<br/>Physics</h1>
+        <div class="tagline">
+          <div class="edu-logo" style="display:flex;align-items:center;gap:12px">
+            <img src="images/logo.jpg" alt="EduReel logo" style="width:48px;height:48px;border-radius:6px">
+            <div>
+              <div style="font-weight:700">EduReel</div>
+              <div style="font-size:13px;color:var(--muted)">Video edukasi singkat untuk SMP/SMA</div>
+            </div>
+          </div>
+        </div>
+        <p style="max-width:520px;color:#27405f">EduReel menyediakan paket video singkat yang fokus pada inti konsep dan dilengkapi latihan interaktif.</p>
+        <a class="cta" href="#courses">Get Started</a>
+      </div>
+      <div class="hero-right">
+        <img src="images/logo.jpg" alt="cover">
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <h2>Tentang Bisnis Kami</h2>
+      <p>EduReel membantu guru & murid belajar fisika lewat video singkat + kuis interaktif.</p>
+      <h3>Kelebihan</h3>
+      <div class="grid features">
+        <div class="feature"><strong>Mudah dipahami</strong><p>Durasi video yang singkat (1 sampai 3 menit) memungkinkan siswa menangkap inti konsep tanpa merasa kewalahan oleh penjelasan yang terlalu panjang. Struktur penyampaian dibuat bertahap dan fokus pada satu topik inti sehingga siswa dapat langsung memahami poin penting tanpa harus menonton video lama atau membaca materi yang rumit.</p></div>
+        <div class="feature"><strong>Interaktif</strong><p>Konten didesain dengan visual dinamis, animasi sederhana, dan contoh kehidupan nyata yang relevan. Hal ini menciptakan pengalaman belajar yang lebih engaging dan mencegah siswa merasa bosan. Efek suara, ilustrasi, dan elemen visual lain dirancang untuk membantu memori visual siswa sekaligus memperkuat konsep.</p></div>
+        <div class="feature"><strong>Fleksibel</strong><p>Fleksibilitas ini membuat EduReel dapat masuk ke berbagai gaya mengajar dan metode pembelajaran modern.</p></div>
+        <div class="feature"><strong>Siap pakai</strong><p>EduReel hadir sebagai solusi ready-to-use di mana guru cukup memilih video sesuai topik tanpa harus membuat materi sendiri. Ini menghemat waktu, tenaga, dan meningkatkan konsistensi kualitas pembelajaran.</p></div>
+      </div>
+    </section>
+
+    <!-- COURSES / PAKET -->
+    <section id="courses" class="section">
+      <h2>Paket Video Fisika</h2>
+      <p style="color:var(--muted)">Pilih paket → lakukan pembayaran → klik "Saya sudah membayar" → minta kode ke admin via WhatsApp → masukkan kode → video & quiz terbuka.</p>
+
+      <div class="videos">
+
+        <!-- PAKET 1 -->
+        <div class="video" id="card-paket1">
+  <div class="thumb" style="padding:0; height:160px;">
+    <video 
+        autoplay 
+        muted 
+        loop 
+        playsinline 
+        style="width:100%; height:100%; object-fit:cover; border-radius:10px;">
+        <source src="preview/Suhu dan Kalor.mp4" type="video/mp4">
+    </video>
+</div>
+
+  <div class="meta">Harga: Rp.10.000</div>
+  <button class="buy" data-open="paket1">Beli & Akses</button>
+
+  ...
+</div>
+
+          <div id="pay-paket1" class="code-box">
+            <strong>Pembayaran:</strong><br>Dana: <strong>085804618772</strong><br>ShopeePay: <strong>083102898585</strong><br><br>
+            <button class="buy" data-wa="paket1">Saya sudah membayar</button>
+
+            <div id="code-box-paket1" style="display:none; margin-top:10px;">
+              <input id="code-input-paket1" class="code-input" type="text" placeholder="Masukkan kode akses">
+              <button class="buy" style="margin-top:8px" data-verify="paket1">Submit Kode</button>
+            </div>
+          </div>
+
+          <div id="content-paket1" class="content-box">
+
+    <h3>Video 1: Konversi Satuan Suhu</h3>
+    <video controls width="100%">
+        <source src="videos/Suhu dan Kalor 1.mp4" type="video/mp4">
+    </video>
+
+    <h3 style="margin-top:15px">Video 2: Perpindahan Kalor</h3>
+    <video controls width="100%">
+        <source src="videos/Suhu dan Kalor 2.mp4" type="video/mp4">
+    </video>
+
+    <div style="margin-top:8px">
+        <a id="quiz-paket1" class="quiz-btn" href="https://wayground.com/admin/quiz/6922bb086fce8f33f0a5df31" target="_blank" style="display:none">
+            🎯 Mulai Quizizz
+        </a>
+    </div>
+</div>
+
+        <!-- PAKET 2 -->
+        <div class="video" id="card-paket2">
+<div class="thumb" style="padding:0; height:160px;">
+    <video 
+        autoplay 
+        muted 
+        loop 
+        playsinline 
+        style="width:100%; height:100%; object-fit:cover; border-radius:10px;">
+        <source src="preview/USAHA DAN ENERGI.mp4" type="video/mp4">
+    </video>
+</div>
+
+  <div class="meta">Harga: Rp.10.000</div>
+  <button class="buy" data-open="paket2">Beli & Akses</button>
+
+  ...
+</div>
+
+
+          <div id="pay-paket2" class="code-box">
+            <strong>Pembayaran:</strong><br>Dana: <strong>085804618772</strong><br>ShopeePay: <strong>083102898585</strong><br><br>
+            <button class="buy" data-wa="paket2">Saya sudah membayar</button>
+
+            <div id="code-box-paket2" style="display:none; margin-top:10px;">
+              <input id="code-input-paket2" class="code-input" type="text" placeholder="Masukkan kode akses">
+              <button class="buy" style="margin-top:8px" data-verify="paket2">Submit Kode</button>
+            </div>
+          </div>
+
+          <div id="content-paket2" class="content-box">
+
+    <h3>Video 1: Usaha</h3>
+    <video controls width="100%">
+        <source src="videos/Usaha dan Energi 1.mp4" type="video/mp4">
+    </video>
+
+    <h3 style="margin-top:15px">Video 2: Energi</h3>
+    <iframe 
+    src="https://drive.google.com/file/d/1LVjciOxPBh5D-w66pWuC0gpMxYmN80gf/preview"
+    width="100%" 
+    height="320" 
+    allow="autoplay"
+    style="border-radius:12px;">
+</iframe>
+
+    <div style="margin-top:8px">
+        <a id="quiz-paket2" class="quiz-btn" href="https://wayground.com/admin/quiz/6922aea028a427c659d031eb" target="_blank" style="display:none">
+            🎯 Mulai Quizizz
+        </a>
+    </div>
+</div>
+
+
+        <!-- PAKET 3 -->
+        <div class="video" id="card-paket3">
+ <div class="thumb" style="padding:0; height:160px;">
+    <video 
+        autoplay 
+        muted 
+        loop 
+        playsinline 
+        style="width:100%; height:100%; object-fit:cover; border-radius:10px;">
+        <source src="preview/Hukum Newton.mp4" type="video/mp4">
+    </video>
+</div>
+
+  <div class="meta">Harga: Rp.10.000</div>
+  <button class="buy" data-open="paket3">Beli & Akses</button>
+
+  ...
+</div>
+
+
+          <div id="pay-paket3" class="code-box">
+            <strong>Pembayaran:</strong><br>Dana: <strong>085804618772</strong><br>ShopeePay: <strong>083102898585</strong><br><br>
+            <button class="buy" data-wa="paket3">Saya sudah membayar</button>
+
+            <div id="code-box-paket3" style="display:none; margin-top:10px;">
+              <input id="code-input-paket3" class="code-input" type="text" placeholder="Masukkan kode akses">
+              <button class="buy" style="margin-top:8px" data-verify="paket3">Submit Kode</button>
+            </div>
+          </div>
+
+         <div id="content-paket3" class="content-box">
+
+    <h3>Video 1: Hukum Newton 1</h3>
+    <video controls width="100%">
+        <source src="videos/Hukum 1 Newton.mp4" type="video/mp4">
+    </video>
+
+    <h3 style="margin-top:15px">Video 2: Hukum Newton 2</h3>
+    <video controls width="100%">
+        <source src="videos/Hukum 2 Newton.mp4" type="video/mp4">
+    </video>
+
+    <h3 style="margin-top:15px">Video 3: Hukum Newton 3</h3>
+    <video controls width="100%">
+        <source src="videos/newton3.mp4" type="video/mp4">
+    </video>
+
+    <div style="margin-top:8px">
+        <a id="quiz-paket3" class="quiz-btn" href="https://wayground.com/admin/quiz/6922b60ba2f3d6f086df2d47" target="_blank" style="display:none">
+            🎯 Mulai Quizizz
+        </a>
+    </div>
+</div>
+
+
+        <!-- PAKET 4 -->
+        <div class="video" id="card-paket1">
+ <div class="thumb" style="padding:0; height:160px;">
+    <video 
+        autoplay 
+        muted 
+        loop 
+        playsinline 
+        style="width:100%; height:100%; object-fit:cover; border-radius:10px;">
+        <source src="preview/FLUIDA STATIS.mp4" type="video/mp4">
+    </video>
+</div>
+  <div class="meta">Harga: Rp.10.000</div>
+  <button class="buy" data-open="paket4">Beli & Akses</button>
+
+  ...
+</div>
+
+
+          <div id="pay-paket4" class="code-box">
+            <strong>Pembayaran:</strong><br>Dana: <strong>085804618772</strong><br>ShopeePay: <strong>083102898585</strong><br><br>
+            <button class="buy" data-wa="paket4">Saya sudah membayar</button>
+
+            <div id="code-box-paket4" style="display:none; margin-top:10px;">
+              <input id="code-input-paket4" class="code-input" type="text" placeholder="Masukkan kode akses">
+              <button class="buy" style="margin-top:8px" data-verify="paket4">Submit Kode</button>
+            </div>
+          </div>
+
+         <div id="content-paket4" class="content-box">
+
+    <h3>Video 1: Hukum Pascal</h3>
+    <video controls width="100%">
+        <source src="videos/Fluida Statis 3.mp4" type="video/mp4">
+    </video>
+
+    <h3 style="margin-top:15px">Video 2: Tekanan Hidrostatis</h3>
+    <video controls width="100%">
+        <source src="videos/Fluida Statis 2.mp4" type="video/mp4">
+    </video>
+
+    <h3 style="margin-top:15px">Video 3: Hukum Archimedes</h3>
+    <video controls width="100%">
+        <source src="videos/Hukum Archimedes.mp4" type="video/mp4">
+    </video>
+
+    <div style="margin-top:8px">
+        <a id="quiz-paket4" class="quiz-btn" href="https://wayground.com/admin/quiz/6922b4310756bf972da0c4bd?at=6922ba2fcf91bfa69216a4f0&MCQ_saved=true" target="_blank" style="display:none">
+            🎯 Mulai Quizizz
+        </a>
+    </div>
+</div>
+
+
+      </div><!-- .videos -->
+    </section>
+
+    <!-- ULASAN -->
+    <section class="reviews" id="reviews">
+      <h2>Ulasan Pembeli</h2>
+      <div id="review-list" class="review-list"></div>
+
+      <div class="review-form">
+        <h3>Tulis Ulasan Anda</h3>
+        <input type="text" id="review-name" placeholder="Nama Anda">
+        <textarea id="review-text" placeholder="Tulis ulasan..." style="min-height:80px"></textarea>
+        <button onclick="addReview()">Kirim Ulasan</button>
+      </div>
+    </section>
+
+    <!-- FAQ / PUSAT INFORMASI -->
+    <section id="faq" class="section" style="background:#fff; border-radius:12px; margin:40px 48px; padding:32px; box-shadow:0 6px 18px rgba(0,0,0,0.05);">
+      <h2 style="margin-top:0;">Pusat Informasi dan Bantuan</h2>
+      <div style="padding:18px; border:1px solid #dce7f7; border-radius:10px; margin-top:18px;">
+        <h3>Bagaimana cara order produk?</h3>
+        <p>Anda cukup memilih paket video, klik tombol <strong>Beli & Akses</strong>, lalu lakukan pembayaran. Setelah itu tekan tombol <strong>Saya sudah membayar</strong> untuk terhubung ke admin dan meminta kode akses.</p>
+      </div>
+      <div style="padding:18px; border:1px solid #dce7f7; border-radius:10px; margin-top:18px;">
+        <h3>Bagaimana cara melakukan pembayaran?</h3>
+        <p>Pembayaran dapat dilakukan melalui Dana atau ShopeePay. Setelah mengirimkan bukti pembayaran, admin akan memberikan kode akses.</p>
+      </div>
+      <div style="padding:18px; border:1px solid #dce7f7; border-radius:10px; margin-top:18px;">
+        <h3>Bagaimana cara mendapatkan produk?</h3>
+        <p>Setelah pembayaran diverifikasi, Anda akan menerima kode akses. Masukkan kode tersebut pada paket yang dibeli, dan video + quiz otomatis terbuka.</p>
+      </div>
+      <div style="padding:18px; border:1px solid #dce7f7; border-radius:10px; margin-top:18px;">
+        <h3>Berapa lama produk ini dapat digunakan?</h3>
+        <p>Akses video dan quiz berlaku <strong>selamanya</strong> (lifetime access). Anda dapat membuka ulang materi kapan saja tanpa batas waktu.</p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      Hubungi kami: <a href="https://wa.me/6285804618772">085804618772 (WhatsApp)</a> • Email: hello@edureel.example
+    </footer>
+
+  </div> <!-- .container -->
+
+  <!-- TEAM -->
+  <section id="team" class="team">
+    <h2>Meet Our Founders</h2>
+    <div class="team-grid">
+      <div class="member"><img src="images/Wardah Alfarah.jpg" alt="Founder 1"><h3>Wardah Alfarah</h3><p>Founder 1</p></div>
+      <div class="member"><img src="images/Arinda Salsa Bella.jpg" alt="Founder 2"><h3>Arinda Salsa Bella</h3><p>Founder 2</p></div>
+      <div class="member"><img src="images/Hikmah Nuraini.jpg" alt="Founder 3"><h3>Hikmah Nuraini</h3><p>Founder 3</p></div>
+      <div class="member"><img src="images/Nur Liana.jpg" alt="Founder 4"><h3>Nur Liana</h3><p>Founder 4</p></div>
+      <div class="member"><img src="images/Vina Riski Safuro.jpg" alt="Founder 5"><h3>Vina Riski Safuro</h3><p>Founder 5</p></div>
+    </div>
+  </section>
+
+  <!-- ============================
+       SCRIPT (bersih & terstruktur)
+       ============================ -->
+  <script>
+  (function(){
+    // konfigurasi paket & kode benar (ubah di sini jika perlu)
+    const PACKS = {
+      paket1: { code: "SUHU123" },
+      paket2: { code: "ENERGI123" },
+      paket3: { code: "NEWTON123" },
+      paket4: { code: "FLUIDA123" }
+    };
+
+    const STORAGE_KEY = "edureel_opened_packs";
+    const REVIEWS_KEY = "edureel_reviews";
+
+    // util
+    function getOpened(){ try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); } catch(e){ return []; } }
+    function saveOpened(arr){ localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(new Set(arr)))); }
+    function escapeHtml(s){ return (s||"").replace(/[&<>"']/g, function(m){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#039;"})[m]; }); }
+
+    // buka panel pembayaran
+    document.querySelectorAll('[data-open]').forEach(btn=>{
+      btn.addEventListener('click', e=>{
+        const id = e.currentTarget.getAttribute('data-open');
+        // toggle pay box
+        const payBox = document.getElementById('pay-' + id);
+        if(!payBox) return;
+        // hide other pay boxes
+        document.querySelectorAll('.code-box').forEach(cb => cb.style.display = 'none');
+        payBox.style.display = 'block';
+        // scroll into view
+        payBox.scrollIntoView({behavior:'smooth', block:'center'});
+      });
+    });
+
+    // tombol WA (sudah bayar)
+    document.querySelectorAll('[data-wa]').forEach(btn=>{
+      btn.addEventListener('click', e=>{
+        const id = e.currentTarget.getAttribute('data-wa');
+        const title = document.querySelector('#card-' + id + ' .thumb img')?.alt || id;
+        const teks = encodeURIComponent(`Halo Admin, saya sudah membayar untuk paket "${title}". Mohon kode aksesnya. Terima kasih.`);
+        window.open('https://wa.me/6285804618772?text=' + teks, '_blank');
+        // tampilkan input kode
+        const inner = document.getElementById('code-box-' + id);
+        if(inner) inner.style.display = 'block';
+      });
+    });
+
+    // verifikasi kode
+    document.querySelectorAll('[data-verify]').forEach(btn=>{
+      btn.addEventListener('click', e=>{
+        const id = e.currentTarget.getAttribute('data-verify');
+        const input = document.getElementById('code-input-' + id);
+        if(!input) return alert('Input kode tidak ditemukan.');
+        const val = (input.value || '').trim().toUpperCase();
+        if(!PACKS[id]) return alert('Paket tidak ditemukan.');
+        if(val === PACKS[id].code.toUpperCase()){
+          // sukses: simpan & tampilkan konten
+          const opened = getOpened();
+          opened.push(id);
+          saveOpened(opened);
+          showContent(id);
+          alert('Kode benar! Akses paket dibuka.');
+        } else {
+          alert('Kode salah. Jika sudah transfer, hubungi admin melalui WhatsApp.');
+        }
+      });
+    });
+
+    // tampilkan konten jika sudah terbuka
+    function showContent(id){
+      const content = document.getElementById('content-' + id);
+      const quiz = document.getElementById('quiz-' + id);
+      const pay = document.getElementById('pay-' + id);
+      if(pay) pay.style.display = 'none';
+      if(content) content.style.display = 'block';
+      if(quiz) quiz.style.display = 'inline-block';
+      // optional: jelaskan di card
+      const card = document.getElementById('card-' + id);
+      if(card){
+        const tag = card.querySelector('.meta');
+        if(tag) tag.innerHTML = 'Harga: Rp.10.000 • <span style="color:green;font-weight:700">Terbuka ✓</span>';
+      }
+    }
+
+    // inisialisasi halaman: buka konten paket yang tersimpan
+    (function initOpened(){
+      const opened = getOpened();
+      opened.forEach(id => showContent(id));
+    })();
+
+    // reviews
+    function loadReviews(){
+      try {
+        const list = JSON.parse(localStorage.getItem(REVIEWS_KEY) || '[]');
+        const container = document.getElementById('review-list');
+        container.innerHTML = '';
+        list.slice().reverse().forEach(it=>{
+          const d = document.createElement('div');
+          d.className = 'review-item';
+          d.innerHTML = `<h4>${escapeHtml(it.name)}</h4><p>${escapeHtml(it.text)}</p>`;
+          container.appendChild(d);
+        });
+      } catch(e){ console.warn(e); }
+    }
+
+    window.addReview = function(){
+      const name = document.getElementById('review-name').value.trim();
+      const text = document.getElementById('review-text').value.trim();
+      if(!name || !text) { alert('Nama dan ulasan harus diisi!'); return; }
+      try {
+        const arr = JSON.parse(localStorage.getItem(REVIEWS_KEY) || '[]');
+        arr.push({ name, text });
+        localStorage.setItem(REVIEWS_KEY, JSON.stringify(arr));
+        document.getElementById('review-name').value = '';
+        document.getElementById('review-text').value = '';
+        loadReviews();
+      } catch(e){ console.warn(e); }
+    };
+
+    // load reviews awal
+    loadReviews();
+
+    // helper: support pressing Enter inside code input to submit
+    document.querySelectorAll('.code-input').forEach(inp=>{
+      inp.addEventListener('keypress', e=>{
+        if(e.key === 'Enter'){
+          const parent = e.currentTarget.id.replace('code-input-','');
+          const btn = document.querySelector('[data-verify="'+parent+'"]');
+          if(btn) btn.click();
+        }
+      });
+    });
+
+  })();
+  </script>
+</body>
+</html>
